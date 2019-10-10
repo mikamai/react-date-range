@@ -161,6 +161,27 @@ class DayCell extends Component {
     ));
   }
   render() {
+    const { dayRenderer: DayRenderer } = this.props;
+    if (DayRenderer) {
+      const { styles, day, color, availabilities, disabled, isPassive, ...props } = this.props;
+      console.log('props', props);
+      return (
+        <DayRenderer
+          {...props}
+          handleMouseEvent={this.handleMouseEvent}
+          handleKeyEvent={this.handleKeyEvent}
+          className={this.getClassNames(styles)}
+          disabled={disabled}
+          isPassive={isPassive}
+          style={{ color: color }}
+          renderSelectionPlaceholders={this.renderSelectionPlaceholders}
+          renderPreviewPlaceholder={this.renderPreviewPlaceholder}
+          day={day}
+          styles={styles}
+          availabilities={availabilities}
+        />
+      );
+    }
     const { styles } = this.props;
     return (
       <button
@@ -223,6 +244,8 @@ DayCell.propTypes = {
   onMouseDown: PropTypes.func,
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
+  dayRenderer: PropTypes.func,
+  availabilities: PropTypes.array,
 };
 
 export default DayCell;
