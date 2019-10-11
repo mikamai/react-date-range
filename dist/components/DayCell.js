@@ -1,13 +1,40 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
 exports.rangeShape = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends =
+  Object.assign ||
+  function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = (function() {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ('value' in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  return function(Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+})();
 
 var _react = require('react');
 
@@ -45,32 +72,87 @@ var _startOfDay = require('date-fns/startOfDay');
 
 var _startOfDay2 = _interopRequireDefault(_startOfDay);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutProperties(obj, keys) {
+  var target = {};
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+  return target;
+}
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+    return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError('Cannot call a class as a function');
+  }
+}
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return call && (typeof call === 'object' || typeof call === 'function') ? call : self;
+}
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-disable no-fallthrough */
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== 'function' && superClass !== null) {
+    throw new TypeError(
+      'Super expression must either be null or a function, not ' + typeof superClass
+    );
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: { value: subClass, enumerable: false, writable: true, configurable: true },
+  });
+  if (superClass)
+    Object.setPrototypeOf
+      ? Object.setPrototypeOf(subClass, superClass)
+      : (subClass.__proto__ = superClass);
+} /* eslint-disable no-fallthrough */
 
-
-var DayCell = function (_Component) {
+var DayCell = (function(_Component) {
   _inherits(DayCell, _Component);
 
   function DayCell(props, context) {
     _classCallCheck(this, DayCell);
 
-    var _this = _possibleConstructorReturn(this, (DayCell.__proto__ || Object.getPrototypeOf(DayCell)).call(this, props, context));
+    var _this = _possibleConstructorReturn(
+      this,
+      (DayCell.__proto__ || Object.getPrototypeOf(DayCell)).call(this, props, context)
+    );
 
     _this.state = {
       hover: false,
-      active: false
+      active: false,
     };
     _this.getClassNames = _this.getClassNames.bind(_this);
     _this.handleMouseEvent = _this.handleMouseEvent.bind(_this);
@@ -80,70 +162,73 @@ var DayCell = function (_Component) {
     return _this;
   }
 
-  _createClass(DayCell, [{
-    key: 'handleKeyEvent',
-    value: function handleKeyEvent(event) {
-      var day = this.props.day;
+  _createClass(DayCell, [
+    {
+      key: 'handleKeyEvent',
+      value: function handleKeyEvent(event) {
+        var day = this.props.day;
 
-      switch (event.keyCode) {
-        case 13: //space
-        case 32:
-          //enter
-          if (event.type === 'keydown') {
-            this.props.onMouseDown(day);
-          } else {
-            this.props.onMouseUp(day);
-          }
-          break;
-      }
-    }
-  }, {
-    key: 'handleMouseEvent',
-    value: function handleMouseEvent(event) {
-      var _props = this.props,
+        switch (event.keyCode) {
+          case 13: //space
+          case 32:
+            //enter
+            if (event.type === 'keydown') {
+              this.props.onMouseDown(day);
+            } else {
+              this.props.onMouseUp(day);
+            }
+            break;
+        }
+      },
+    },
+    {
+      key: 'handleMouseEvent',
+      value: function handleMouseEvent(event) {
+        var _props = this.props,
           day = _props.day,
           disabled = _props.disabled,
           onPreviewChange = _props.onPreviewChange;
 
-      var stateChanges = {};
-      if (disabled) {
-        onPreviewChange();
-        return;
-      }
+        var stateChanges = {};
+        if (disabled) {
+          onPreviewChange();
+          return;
+        }
 
-      switch (event.type) {
-        case 'mouseenter':
-          this.props.onMouseEnter(day);
-          onPreviewChange(day);
-          stateChanges.hover = true;
-          break;
-        case 'blur':
-        case 'mouseleave':
-          stateChanges.hover = false;
-          break;
-        case 'mousedown':
-          stateChanges.active = true;
-          this.props.onMouseDown(day);
-          break;
-        case 'mouseup':
-          event.stopPropagation();
-          stateChanges.active = false;
-          this.props.onMouseUp(day);
-          break;
-        case 'focus':
-          onPreviewChange(day);
-          break;
-      }
-      if (Object.keys(stateChanges).length) {
-        this.setState(stateChanges);
-      }
-    }
-  }, {
-    key: 'getClassNames',
-    value: function getClassNames() {
-      var _classnames;
+        switch (event.type) {
+          case 'mouseenter':
+            this.props.onMouseEnter(day);
+            onPreviewChange(day);
+            stateChanges.hover = true;
+            break;
+          case 'blur':
+          case 'mouseleave':
+            stateChanges.hover = false;
+            break;
+          case 'mousedown':
+            stateChanges.active = true;
+            this.props.onMouseDown(day);
+            break;
+          case 'mouseup':
+            event.stopPropagation();
+            stateChanges.active = false;
+            this.props.onMouseUp(day);
+            break;
+          case 'focus':
+            onPreviewChange(day);
+            break;
+        }
+        if (Object.keys(stateChanges).length) {
+          this.setState(stateChanges);
+        }
+      },
+    },
+    {
+      key: 'getClassNames',
+      value: function getClassNames() {
+        var _classnames;
 
-      var _props2 = this.props,
+        var _props2 = this.props,
           isPassive = _props2.isPassive,
           isToday = _props2.isToday,
           isWeekend = _props2.isWeekend,
@@ -154,155 +239,208 @@ var DayCell = function (_Component) {
           disabled = _props2.disabled,
           styles = _props2.styles;
 
+        return (0, _classnames5.default)(
+          styles.day,
+          ((_classnames = {}),
+          _defineProperty(_classnames, styles.dayPassive, isPassive),
+          _defineProperty(_classnames, styles.dayDisabled, disabled),
+          _defineProperty(_classnames, styles.dayToday, isToday),
+          _defineProperty(_classnames, styles.dayWeekend, isWeekend),
+          _defineProperty(_classnames, styles.dayStartOfWeek, isStartOfWeek),
+          _defineProperty(_classnames, styles.dayEndOfWeek, isEndOfWeek),
+          _defineProperty(_classnames, styles.dayStartOfMonth, isStartOfMonth),
+          _defineProperty(_classnames, styles.dayEndOfMonth, isEndOfMonth),
+          _defineProperty(_classnames, styles.dayHovered, this.state.hover),
+          _defineProperty(_classnames, styles.dayActive, this.state.active),
+          _classnames)
+        );
+      },
+    },
+    {
+      key: 'renderPreviewPlaceholder',
+      value: function renderPreviewPlaceholder() {
+        var _classnames2;
 
-      return (0, _classnames5.default)(styles.day, (_classnames = {}, _defineProperty(_classnames, styles.dayPassive, isPassive), _defineProperty(_classnames, styles.dayDisabled, disabled), _defineProperty(_classnames, styles.dayToday, isToday), _defineProperty(_classnames, styles.dayWeekend, isWeekend), _defineProperty(_classnames, styles.dayStartOfWeek, isStartOfWeek), _defineProperty(_classnames, styles.dayEndOfWeek, isEndOfWeek), _defineProperty(_classnames, styles.dayStartOfMonth, isStartOfMonth), _defineProperty(_classnames, styles.dayEndOfMonth, isEndOfMonth), _defineProperty(_classnames, styles.dayHovered, this.state.hover), _defineProperty(_classnames, styles.dayActive, this.state.active), _classnames));
-    }
-  }, {
-    key: 'renderPreviewPlaceholder',
-    value: function renderPreviewPlaceholder() {
-      var _classnames2;
-
-      var _props3 = this.props,
+        var _props3 = this.props,
           preview = _props3.preview,
           day = _props3.day,
           styles = _props3.styles;
 
-      if (!preview) return null;
-      var startDate = preview.startDate ? (0, _endOfDay2.default)(preview.startDate) : null;
-      var endDate = preview.endDate ? (0, _startOfDay2.default)(preview.endDate) : null;
-      var isInRange = (!startDate || (0, _isAfter2.default)(day, startDate)) && (!endDate || (0, _isBefore2.default)(day, endDate));
-      var isStartEdge = !isInRange && (0, _isSameDay2.default)(day, startDate);
-      var isEndEdge = !isInRange && (0, _isSameDay2.default)(day, endDate);
-      return _react2.default.createElement('span', {
-        className: (0, _classnames5.default)((_classnames2 = {}, _defineProperty(_classnames2, styles.dayStartPreview, isStartEdge), _defineProperty(_classnames2, styles.dayInPreview, isInRange), _defineProperty(_classnames2, styles.dayEndPreview, isEndEdge), _classnames2)),
-        style: { color: preview.color }
-      });
-    }
-  }, {
-    key: 'renderSelectionPlaceholders',
-    value: function renderSelectionPlaceholders() {
-      var _this2 = this;
+        if (!preview) return null;
+        var startDate = preview.startDate ? (0, _endOfDay2.default)(preview.startDate) : null;
+        var endDate = preview.endDate ? (0, _startOfDay2.default)(preview.endDate) : null;
+        var isInRange =
+          (!startDate || (0, _isAfter2.default)(day, startDate)) &&
+          (!endDate || (0, _isBefore2.default)(day, endDate));
+        var isStartEdge = !isInRange && (0, _isSameDay2.default)(day, startDate);
+        var isEndEdge = !isInRange && (0, _isSameDay2.default)(day, endDate);
+        return _react2.default.createElement('span', {
+          className: (0, _classnames5.default)(
+            ((_classnames2 = {}),
+            _defineProperty(_classnames2, styles.dayStartPreview, isStartEdge),
+            _defineProperty(_classnames2, styles.dayInPreview, isInRange),
+            _defineProperty(_classnames2, styles.dayEndPreview, isEndEdge),
+            _classnames2)
+          ),
+          style: { color: preview.color },
+        });
+      },
+    },
+    {
+      key: 'renderSelectionPlaceholders',
+      value: function renderSelectionPlaceholders() {
+        var _this2 = this;
 
-      var _props4 = this.props,
+        var _props4 = this.props,
           styles = _props4.styles,
           ranges = _props4.ranges,
           day = _props4.day;
 
-      if (this.props.displayMode === 'date') {
-        var isSelected = (0, _isSameDay2.default)(this.props.day, this.props.date);
-        return isSelected ? _react2.default.createElement('span', { className: styles.selected, style: { color: this.props.color } }) : null;
-      }
-
-      var inRanges = ranges.reduce(function (result, range) {
-        var startDate = range.startDate;
-        var endDate = range.endDate;
-        if (startDate && endDate && (0, _isBefore2.default)(endDate, startDate)) {
-          var _ref = [endDate, startDate];
-          startDate = _ref[0];
-          endDate = _ref[1];
+        if (this.props.displayMode === 'date') {
+          var isSelected = (0, _isSameDay2.default)(this.props.day, this.props.date);
+          return isSelected
+            ? _react2.default.createElement('span', {
+                className: styles.selected,
+                style: { color: this.props.color },
+              })
+            : null;
         }
-        startDate = startDate ? (0, _endOfDay2.default)(startDate) : null;
-        endDate = endDate ? (0, _startOfDay2.default)(endDate) : null;
-        var isInRange = (!startDate || (0, _isAfter2.default)(day, startDate)) && (!endDate || (0, _isBefore2.default)(day, endDate));
-        var isStartEdge = !isInRange && (0, _isSameDay2.default)(day, startDate);
-        var isEndEdge = !isInRange && (0, _isSameDay2.default)(day, endDate);
-        if (isInRange || isStartEdge || isEndEdge) {
-          return [].concat(_toConsumableArray(result), [_extends({
-            isStartEdge: isStartEdge,
-            isEndEdge: isEndEdge,
-            isInRange: isInRange
-          }, range)]);
-        }
-        return result;
-      }, []);
 
-      return inRanges.map(function (range, i) {
-        var _classnames3;
+        var inRanges = ranges.reduce(function(result, range) {
+          var startDate = range.startDate;
+          var endDate = range.endDate;
+          if (startDate && endDate && (0, _isBefore2.default)(endDate, startDate)) {
+            var _ref = [endDate, startDate];
+            startDate = _ref[0];
+            endDate = _ref[1];
+          }
+          startDate = startDate ? (0, _endOfDay2.default)(startDate) : null;
+          endDate = endDate ? (0, _startOfDay2.default)(endDate) : null;
+          var isInRange =
+            (!startDate || (0, _isAfter2.default)(day, startDate)) &&
+            (!endDate || (0, _isBefore2.default)(day, endDate));
+          var isStartEdge = !isInRange && (0, _isSameDay2.default)(day, startDate);
+          var isEndEdge = !isInRange && (0, _isSameDay2.default)(day, endDate);
+          if (isInRange || isStartEdge || isEndEdge) {
+            return [].concat(_toConsumableArray(result), [
+              _extends(
+                {
+                  isStartEdge: isStartEdge,
+                  isEndEdge: isEndEdge,
+                  isInRange: isInRange,
+                },
+                range
+              ),
+            ]);
+          }
+          return result;
+        }, []);
 
-        return _react2.default.createElement('span', {
-          key: i,
-          className: (0, _classnames5.default)((_classnames3 = {}, _defineProperty(_classnames3, styles.startEdge, range.isStartEdge), _defineProperty(_classnames3, styles.endEdge, range.isEndEdge), _defineProperty(_classnames3, styles.inRange, range.isInRange), _classnames3)),
-          style: { color: range.color || _this2.props.color }
+        return inRanges.map(function(range, i) {
+          var _classnames3;
+
+          return _react2.default.createElement('span', {
+            key: i,
+            className: (0, _classnames5.default)(
+              ((_classnames3 = {}),
+              _defineProperty(_classnames3, styles.startEdge, range.isStartEdge),
+              _defineProperty(_classnames3, styles.endEdge, range.isEndEdge),
+              _defineProperty(_classnames3, styles.inRange, range.isInRange),
+              _classnames3)
+            ),
+            style: { color: range.color || _this2.props.color },
+          });
         });
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var DayRenderer = this.props.dayRenderer;
+      },
+    },
+    {
+      key: 'render',
+      value: function render() {
+        var DayRenderer = this.props.dayRenderer;
 
-      if (DayRenderer) {
-        var _props5 = this.props,
+        if (DayRenderer) {
+          var _props5 = this.props,
             _styles = _props5.styles,
             day = _props5.day,
             color = _props5.color,
             availabilities = _props5.availabilities,
             disabled = _props5.disabled,
             isPassive = _props5.isPassive,
-            props = _objectWithoutProperties(_props5, ['styles', 'day', 'color', 'availabilities', 'disabled', 'isPassive']);
+            props = _objectWithoutProperties(_props5, [
+              'styles',
+              'day',
+              'color',
+              'availabilities',
+              'disabled',
+              'isPassive',
+            ]);
 
-        console.log('props', props);
-        return _react2.default.createElement(DayRenderer, _extends({}, props, {
-          handleMouseEvent: this.handleMouseEvent,
-          handleKeyEvent: this.handleKeyEvent,
-          className: this.getClassNames(_styles),
-          disabled: disabled,
-          isPassive: isPassive,
-          style: { color: color },
-          renderSelectionPlaceholders: this.renderSelectionPlaceholders,
-          renderPreviewPlaceholder: this.renderPreviewPlaceholder,
-          day: day,
-          styles: _styles,
-          availabilities: availabilities
-        }));
-      }
-      var styles = this.props.styles;
+          return _react2.default.createElement(
+            DayRenderer,
+            _extends({}, props, {
+              handleMouseEvent: this.handleMouseEvent,
+              handleKeyEvent: this.handleKeyEvent,
+              className: this.getClassNames(_styles),
+              disabled: disabled,
+              isPassive: isPassive,
+              style: { color: color },
+              renderSelectionPlaceholders: this.renderSelectionPlaceholders,
+              renderPreviewPlaceholder: this.renderPreviewPlaceholder,
+              day: day,
+              styles: _styles,
+              availabilities: availabilities,
+            })
+          );
+        }
+        var styles = this.props.styles;
 
-      return _react2.default.createElement(
-        'button',
-        _extends({
-          type: 'button',
-          onMouseEnter: this.handleMouseEvent,
-          onMouseLeave: this.handleMouseEvent,
-          onFocus: this.handleMouseEvent,
-          onMouseDown: this.handleMouseEvent,
-          onMouseUp: this.handleMouseEvent,
-          onBlur: this.handleMouseEvent,
-          onPauseCapture: this.handleMouseEvent,
-          onKeyDown: this.handleKeyEvent,
-          onKeyUp: this.handleKeyEvent,
-          className: this.getClassNames(styles)
-        }, this.props.disabled || this.props.isPassive ? { tabIndex: -1 } : {}, {
-          style: { color: this.props.color } }),
-        this.renderSelectionPlaceholders(),
-        this.renderPreviewPlaceholder(),
-        _react2.default.createElement(
-          'span',
-          { className: styles.dayNumber },
+        return _react2.default.createElement(
+          'button',
+          _extends(
+            {
+              type: 'button',
+              onMouseEnter: this.handleMouseEvent,
+              onMouseLeave: this.handleMouseEvent,
+              onFocus: this.handleMouseEvent,
+              onMouseDown: this.handleMouseEvent,
+              onMouseUp: this.handleMouseEvent,
+              onBlur: this.handleMouseEvent,
+              onPauseCapture: this.handleMouseEvent,
+              onKeyDown: this.handleKeyEvent,
+              onKeyUp: this.handleKeyEvent,
+              className: this.getClassNames(styles),
+            },
+            this.props.disabled || this.props.isPassive ? { tabIndex: -1 } : {},
+            {
+              style: { color: this.props.color },
+            }
+          ),
+          this.renderSelectionPlaceholders(),
+          this.renderPreviewPlaceholder(),
           _react2.default.createElement(
             'span',
-            null,
-            (0, _format2.default)(this.props.day, 'D')
+            { className: styles.dayNumber },
+            _react2.default.createElement('span', null, (0, _format2.default)(this.props.day, 'D'))
           )
-        )
-      );
-    }
-  }]);
+        );
+      },
+    },
+  ]);
 
   return DayCell;
-}(_react.Component);
+})(_react.Component);
 
 DayCell.defaultProps = {};
 
-var rangeShape = exports.rangeShape = _propTypes2.default.shape({
+var rangeShape = (exports.rangeShape = _propTypes2.default.shape({
   startDate: _propTypes2.default.object,
   endDate: _propTypes2.default.object,
   color: _propTypes2.default.string,
   key: _propTypes2.default.string,
   autoFocus: _propTypes2.default.bool,
   disabled: _propTypes2.default.bool,
-  showDateDisplay: _propTypes2.default.bool
-});
+  showDateDisplay: _propTypes2.default.bool,
+}));
 
 DayCell.propTypes = {
   day: _propTypes2.default.object.isRequired,
@@ -310,7 +448,7 @@ DayCell.propTypes = {
   ranges: _propTypes2.default.arrayOf(rangeShape),
   preview: _propTypes2.default.shape({
     startDate: _propTypes2.default.object,
-    endDate: _propTypes2.default.object
+    endDate: _propTypes2.default.object,
   }),
   onPreviewChange: _propTypes2.default.func,
   previewColor: _propTypes2.default.string,
@@ -329,7 +467,7 @@ DayCell.propTypes = {
   onMouseUp: _propTypes2.default.func,
   onMouseEnter: _propTypes2.default.func,
   dayRenderer: _propTypes2.default.func,
-  availabilities: _propTypes2.default.array
+  availabilities: _propTypes2.default.array,
 };
 
 exports.default = DayCell;
