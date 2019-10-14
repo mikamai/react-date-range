@@ -160,7 +160,7 @@ class Calendar extends PureComponent {
       onShownDateChange && onShownDateChange(visibleMonth);
     }
   }
-  renderMonthAndYear(focusedDate, changeShownDate, props) {
+  renderMonthAndYear({ focusedDate, changeShownDate, ...props }) {
     const { showMonthArrow, locale, minDate, maxDate, showMonthAndYearPickers } = props;
     const upperYearLimit = (maxDate || Calendar.defaultProps.maxDate).getFullYear();
     const lowerYearLimit = (minDate || Calendar.defaultProps.minDate).getFullYear();
@@ -355,10 +355,30 @@ class Calendar extends PureComponent {
       minDate,
       rangeColors,
       color,
+      navigatorRenderer: NavigatorRenderer,
+      showMonthArrow,
+      isOpen,
+      toggle,
+      locale,
+      getAvailabilities,
     } = this.props;
     const { scrollArea, focusedDate } = this.state;
     const isVertical = direction === 'vertical';
-    const navigatorRenderer = this.props.navigatorRenderer || this.renderMonthAndYear;
+    const navigatorRenderer = NavigatorRenderer ? (
+      <NavigatorRenderer
+        focusedDate={focusedDate}
+        changeShownDate={this.changeShownDate}
+        showMonthArrow={showMonthArrow}
+        locale={locale}
+        minDate={minDate}
+        maxDate={maxDate}
+        isOpen={isOpen}
+        toggle={toggle}
+        getAvailabilities={getAvailabilities}
+      />
+    ) : (
+      this.renderMonthAndYear({ focusedDate, changeShownDate: this.changeShownDate, ...this.props })
+    );
 
     const ranges = this.props.ranges.map((range, i) => ({
       ...range,
@@ -372,7 +392,7 @@ class Calendar extends PureComponent {
           this.setState({ drag: { status: false, range: {} } });
         }}>
         {showDateDisplay && this.renderDateDisplay()}
-        {navigatorRenderer(focusedDate, this.changeShownDate, this.props)}
+        {navigatorRenderer}
         {scroll.enabled ? (
           <div>
             {isVertical && this.renderWeekdays(this.dateOptions)}
