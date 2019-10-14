@@ -112,6 +112,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -303,7 +305,11 @@ var Calendar = function (_PureComponent) {
     }
   }, {
     key: 'renderMonthAndYear',
-    value: function renderMonthAndYear(focusedDate, changeShownDate, props) {
+    value: function renderMonthAndYear(_ref) {
+      var focusedDate = _ref.focusedDate,
+          changeShownDate = _ref.changeShownDate,
+          props = _objectWithoutProperties(_ref, ['focusedDate', 'changeShownDate']);
+
       var showMonthArrow = props.showMonthArrow,
           locale = props.locale,
           minDate = props.minDate,
@@ -570,13 +576,29 @@ var Calendar = function (_PureComponent) {
           maxDate = _props7.maxDate,
           minDate = _props7.minDate,
           rangeColors = _props7.rangeColors,
-          color = _props7.color;
+          color = _props7.color,
+          NavigatorRenderer = _props7.navigatorRenderer,
+          showMonthArrow = _props7.showMonthArrow,
+          isOpen = _props7.isOpen,
+          toggle = _props7.toggle,
+          locale = _props7.locale,
+          getAvailabilities = _props7.getAvailabilities;
       var _state = this.state,
           scrollArea = _state.scrollArea,
           focusedDate = _state.focusedDate;
 
       var isVertical = direction === 'vertical';
-      var navigatorRenderer = this.props.navigatorRenderer || this.renderMonthAndYear;
+      var navigatorRenderer = NavigatorRenderer ? _react2.default.createElement(NavigatorRenderer, {
+        focusedDate: focusedDate,
+        changeShownDate: this.changeShownDate,
+        showMonthArrow: showMonthArrow,
+        locale: locale,
+        minDate: minDate,
+        maxDate: maxDate,
+        isOpen: isOpen,
+        toggle: toggle,
+        getAvailabilities: getAvailabilities
+      }) : this.renderMonthAndYear(_extends({ focusedDate: focusedDate, changeShownDate: this.changeShownDate }, this.props));
 
       var ranges = this.props.ranges.map(function (range, i) {
         return _extends({}, range, {
@@ -594,7 +616,7 @@ var Calendar = function (_PureComponent) {
             _this5.setState({ drag: { status: false, range: {} } });
           } },
         showDateDisplay && this.renderDateDisplay(),
-        navigatorRenderer(focusedDate, this.changeShownDate, this.props),
+        navigatorRenderer,
         scroll.enabled ? _react2.default.createElement(
           'div',
           null,
