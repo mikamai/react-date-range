@@ -369,12 +369,7 @@ class Calendar extends PureComponent {
         focusedDate={focusedDate}
         changeShownDate={this.changeShownDate}
         showMonthArrow={showMonthArrow}
-        locale={locale}
-        minDate={minDate}
-        maxDate={maxDate}
-        isOpen={isOpen}
-        toggle={toggle}
-        getAvailabilities={getAvailabilities}
+        {...this.props}
       />
     ) : (
       this.renderMonthAndYear({ focusedDate, changeShownDate: this.changeShownDate, ...this.props })

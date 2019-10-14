@@ -588,17 +588,11 @@ var Calendar = function (_PureComponent) {
           focusedDate = _state.focusedDate;
 
       var isVertical = direction === 'vertical';
-      var navigatorRenderer = NavigatorRenderer ? _react2.default.createElement(NavigatorRenderer, {
+      var navigatorRenderer = NavigatorRenderer ? _react2.default.createElement(NavigatorRenderer, _extends({
         focusedDate: focusedDate,
         changeShownDate: this.changeShownDate,
-        showMonthArrow: showMonthArrow,
-        locale: locale,
-        minDate: minDate,
-        maxDate: maxDate,
-        isOpen: isOpen,
-        toggle: toggle,
-        getAvailabilities: getAvailabilities
-      }) : this.renderMonthAndYear(_extends({ focusedDate: focusedDate, changeShownDate: this.changeShownDate }, this.props));
+        showMonthArrow: showMonthArrow
+      }, this.props)) : this.renderMonthAndYear(_extends({ focusedDate: focusedDate, changeShownDate: this.changeShownDate }, this.props));
 
       var ranges = this.props.ranges.map(function (range, i) {
         return _extends({}, range, {
