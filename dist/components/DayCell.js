@@ -241,7 +241,6 @@ var DayCell = function (_Component) {
             isPassive = _props5.isPassive,
             props = _objectWithoutProperties(_props5, ['styles', 'day', 'color', 'availabilities', 'disabled', 'isPassive']);
 
-        console.log('props', props);
         return _react2.default.createElement(DayRenderer, _extends({}, props, {
           handleMouseEvent: this.handleMouseEvent,
           handleKeyEvent: this.handleKeyEvent,

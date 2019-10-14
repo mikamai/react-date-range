@@ -164,7 +164,6 @@ class DayCell extends Component {
     const { dayRenderer: DayRenderer } = this.props;
     if (DayRenderer) {
       const { styles, day, color, availabilities, disabled, isPassive, ...props } = this.props;
-      console.log('props', props);
       return (
         <DayRenderer
           {...props}
