@@ -357,10 +357,6 @@ class Calendar extends PureComponent {
       color,
       navigatorRenderer: NavigatorRenderer,
       showMonthArrow,
-      isOpen,
-      toggle,
-      locale,
-      getAvailabilities,
     } = this.props;
     const { scrollArea, focusedDate } = this.state;
     const isVertical = direction === 'vertical';
