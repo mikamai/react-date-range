@@ -83,6 +83,7 @@ class Calendar extends PureComponent {
       return;
     }
     const targetMonthIndex = differenceInCalendarMonths(date, props.minDate, this.dateOptions);
+
     const visibleMonths = this.list.getVisibleRange();
     if (preventUnnecessary && visibleMonths.includes(targetMonthIndex)) return;
     this.list.scrollTo(targetMonthIndex);
@@ -117,20 +118,21 @@ class Calendar extends PureComponent {
     }
   }
   componentWillReceiveProps(nextProps) {
-    const propMapper = {
-      dateRange: 'ranges',
-      date: 'date',
-    };
-    const targetProp = propMapper[nextProps.displayMode];
+    // const propMapper = {
+    //   dateRange: 'ranges',
+    //   date: 'date',
+    // };
+    // const targetProp = propMapper[nextProps.displayMode];
     if (this.props.locale !== nextProps.locale) {
       this.dateOptions = { locale: nextProps.locale };
     }
     if (JSON.stringify(this.props.scroll) !== JSON.stringify(nextProps.scroll)) {
       this.setState({ scrollArea: this.calcScrollArea(nextProps) });
     }
-    if (nextProps[targetProp] !== this.props[targetProp]) {
-      this.updateShownDate(nextProps);
-    }
+    // TODO: Rimosso per i troppi render effettuati, non ritorna piu al range selezionato
+    // if (nextProps[targetProp] !== this.props[targetProp]) {
+    //   this.updateShownDate(nextProps);
+    // }
   }
   changeShownDate(value, mode = 'set') {
     const { focusedDate } = this.state;
@@ -141,6 +143,7 @@ class Calendar extends PureComponent {
       setYear: () => setYear(focusedDate, value),
       set: () => value,
     };
+
     const newDate = min([max([modeMapper[mode](), minDate]), maxDate]);
     this.focusToDate(newDate, this.props, false);
     onShownDateChange && onShownDateChange(newDate);
