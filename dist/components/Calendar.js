@@ -193,6 +193,7 @@ var Calendar = function (_PureComponent) {
         return;
       }
       var targetMonthIndex = (0, _differenceInCalendarMonths2.default)(date, props.minDate, this.dateOptions);
+
       var visibleMonths = this.list.getVisibleRange();
       if (preventUnnecessary && visibleMonths.includes(targetMonthIndex)) return;
       this.list.scrollTo(targetMonthIndex);
@@ -238,20 +239,21 @@ var Calendar = function (_PureComponent) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      var propMapper = {
-        dateRange: 'ranges',
-        date: 'date'
-      };
-      var targetProp = propMapper[nextProps.displayMode];
+      // const propMapper = {
+      //   dateRange: 'ranges',
+      //   date: 'date',
+      // };
+      // const targetProp = propMapper[nextProps.displayMode];
       if (this.props.locale !== nextProps.locale) {
         this.dateOptions = { locale: nextProps.locale };
       }
       if (JSON.stringify(this.props.scroll) !== JSON.stringify(nextProps.scroll)) {
         this.setState({ scrollArea: this.calcScrollArea(nextProps) });
       }
-      if (nextProps[targetProp] !== this.props[targetProp]) {
-        this.updateShownDate(nextProps);
-      }
+      // TODO: Rimosso per i troppi render effettuati, non ritorna piu al range selezionato
+      // if (nextProps[targetProp] !== this.props[targetProp]) {
+      //   this.updateShownDate(nextProps);
+      // }
     }
   }, {
     key: 'changeShownDate',
@@ -277,6 +279,7 @@ var Calendar = function (_PureComponent) {
           return value;
         }
       };
+
       var newDate = (0, _min2.default)([(0, _max2.default)([modeMapper[mode](), minDate]), maxDate]);
       this.focusToDate(newDate, this.props, false);
       onShownDateChange && onShownDateChange(newDate);
@@ -578,11 +581,7 @@ var Calendar = function (_PureComponent) {
           rangeColors = _props7.rangeColors,
           color = _props7.color,
           NavigatorRenderer = _props7.navigatorRenderer,
-          showMonthArrow = _props7.showMonthArrow,
-          isOpen = _props7.isOpen,
-          toggle = _props7.toggle,
-          locale = _props7.locale,
-          getAvailabilities = _props7.getAvailabilities;
+          showMonthArrow = _props7.showMonthArrow;
       var _state = this.state,
           scrollArea = _state.scrollArea,
           focusedDate = _state.focusedDate;
